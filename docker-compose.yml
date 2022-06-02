@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  web:
+    restart: always
+    build: .
+    command:  /bin/sh -c "entrypoint.sh"
+#     bash -c "
+#     julia -e 'using Pkg; Pkg.activate(\".\"); Pkg.instantiate(); '
+#     && julia --project ./src/ReadMind.jl --input chb01_01.edf --inputDir ./ --params Parameters.jl --paramsDir ./src/ --outDir ./  --additional \"annotationCalibrator.jl,fileReaderXLSX.jl\"  --addDir ./ --annotation chb01-summary.txt --annotDir ./ "
+    volumes:
+      - .:/code
